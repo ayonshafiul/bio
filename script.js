@@ -27,7 +27,7 @@ let currentMessage = 0;
 let INTERVAL = 1000;
 let addMessagetimer;
 let MAX_MESSAGES = 25;
-let MAX_RANGE = 50;
+let MAX_RANGE = 100;
 let timer;
 let prevDiv;
 let prevMessage;
