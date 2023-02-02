@@ -13,6 +13,10 @@ body {
     height: 100vh;
 }
 
+a {
+    color: white
+}
+
 #container {
     width: 80%;
     max-width: 800px;
@@ -26,6 +30,7 @@ body {
 .message {
     font-family: monospace;
     font-size: 12px;
+    line-height: 1.5;
 }
 
 .message:last-child::after {

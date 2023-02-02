@@ -13,7 +13,7 @@ let data = [
     "",
     "If you want to colaborate with me",
     "you can reach me via email at ayonshafiul@gmail.com",
-    "or you can check out my github at https://github.com/ayonshafiul",
+    "or you can check out my github at <a href='https://github.com/ayonshafiul'>ayonshafiul</a>",
     "",
     "Thank You!."
 ]
@@ -24,7 +24,6 @@ let currentMessage = 0;
 let INTERVAL = 1500;
 let NAME = 'shafiul';
 let AT = 'bio';
-let MAX_MESSAGES = 25;
 let CHARACTER_RANDOMNESS_LIMIT = 3;
 let INTERVAL_BETWEEN_TYPED_CHARACTERS = 10; // in ms
 
@@ -57,10 +56,6 @@ const addMessage = (rootElement, message) => {
         random = Math.floor(Math.random() * CHARACTER_RANDOMNESS_LIMIT)
         to = to + random <= message.length ? to + random : message.length;
     }, INTERVAL_BETWEEN_TYPED_CHARACTERS)
-
-    if (rootElement.childNodes.length > MAX_MESSAGES || currentMessage == 0) {
-        rootElement.childNodes[0].remove()
-    }
     rootElement.appendChild(div)
     prevDiv = div;
     prevMessage = message;
