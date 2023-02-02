@@ -1,33 +1,32 @@
 let data = [
-    "lorem ip;lsakdjflkad f;lsakdjf  ;laskjf;alskdjfksjdfkjs dfkjs lfkjsdf",
-    "lorem ip;lsakdjflkad f;lsakdjf ;aslkdjf ;aslkdjf ;laskjf ;laskjf;alskdjfksjdfkjs  lfkjsdf",
-    "lorem ip;lsakdjflkad f;lsakdjf ;aslkdjf ;aslkdjf ;laskjf ;laskjf;alskdjfksjdfkjs lfkjsdf",
-    "lorem ip;lsakdjflkad f;lsakdjf ;aslkdjf ;aslkdjf ;laskjf ;alskdjfksjdfkjs dfkjs lfkjsdf",
-    "lorem ip;lsakdjflkad f;lsakdjf ;aslkdjf ;aslkdjf  ;laskjf;alskdjfksjdfkjs dfkjs lfkjsdf",
-    "lorem ip;lsakdjflkad f;lsakdjf ;aslkdjf  ;laskjf ;laskjf;alskdjfksjdfkjs dfkjs lfkjsdf",
-    "lorem ip;lsakdjflkad f;lsakdjf ;aslkdjf ;laskjf ;laskjf;alskdjfksjdfkjs dfkjs lfkjsdf",
-    "lorem ip;lsakdjflkad f;lsakdjf f ;aslkdjf ;laskjf ;laskjf;alskdjfksjdfkjs dfkjs lfkjsdf",
-    "lorem ip;lsakdjflkad ;aslkdjf ;aslkdjf ;laskjf ;laskjf;alskdjfksjdfkjs dfkjs lfkjsdf",
-    "lorem ip;lsak;lsakdjf ;aslkdjf ;aslkdjf ;laskjf ;laskjf;alskdjfksjdfkjs dfkjs lfkjsdf",
-    "loremakdjflkad f;lsakdjf ;aslkd ;asdjf ;laskjf ;laskjf;alskdjfksjdfkjs dfkjs lfkjsdf",
-    "lorem ip;lsakdjflkad f;lsakdjf ;af ;laskjf;alskdjfksjdfkjs dfkjs lfkjsdf",
-    "loremp;lsakdjflkad f;lsakdjf skjf;alskdjfksjdfkjs dfkjs lfkjsdf",
-    "lorem ip;lsakdjflkad f;lsakdjf ;alkdj;laskjf ;laskjf;alskdjfksjdfkjs dfkjs lfkjsdf",
-    "lorem ip;lsakdjflkad f;lsakdf ;slkdjf ;laskjf ;laskjf;alskdjfksjdfkjs dfkjs lfkjsdf",
-    "lorem ip f;lsakdjf ;aslkdjf ;aslkdjf ;laskjf ;laskjf;alskdjfksjdfkjs dfkjs lfkjsdf",
-    "lorem iflkad f;lsakdjf ;asldjf ;laskjf;alskdjfksjdfkjs dfkjs lfkjsdf",
-    "lorem ip;lsakdjflkad f;lsakdjf ;asllkdjf ;laskjf ;laskjf;alskdjfksjdfkjs dfkjs lfkjsdf",
-    "lorem ip;lsaadf ;aslkdjf ;akdjf ;aslkdjf ;laskjf ;laskjf;alskdjfksjdfkjs dfkjs lfkjsdf",
-    "lorem ip;lsakdjflkad f;lsakdjf;aslkdjf ;laskjf ;laskjf;alskdjfksjdfkjs dfkjs lfkjsdf",
+    "Hi! I am Shafiul Muslebeen",
+    "",
+    "I have a bachelor's degree in Computer Science and Engineering from BRAC University",
+    "",
+    "I'm currently working as a Junior Software Engineer at Mediusware Ltd.",
+    "",
+    "I make all kinds of apps like this one you are seeing",
+    "",
+    "I'm a full stack developer focusing on MERN stack",
+    "",
+    "I also develop cross-platform mobile apps using React Native",
+    "",
+    "If you want to colaborate with me",
+    "you can reach me via email at ayonshafiul@gmail.com",
+    "or you can check out my github at https://github.com/ayonshafiul"
 ]
 
 
 let container = document.querySelector("#container");
 let currentMessage = 0;
-let INTERVAL = 1000;
-let addMessagetimer;
+let INTERVAL = 1500;
+let NAME = 'shafiul';
+let AT = 'bio';
 let MAX_MESSAGES = 25;
-let MAX_RANGE = 100;
+let CHARACTER_RANDOMNESS_LIMIT = 3;
+let INTERVAL_BETWEEN_TYPED_CHARACTERS = 10; // in ms
+
+let addMessagetimer;
 let timer;
 let prevDiv;
 let prevMessage;
@@ -35,26 +34,27 @@ let prevMessage;
 const addMessage = (rootElement, message) => {
     let div = document.createElement("div");
     div.setAttribute("class", "message")
+
     let from = 0;
-    let random = (Math.floor(Math.random() * (parseInt((document.querySelector("#speed").value)) / 2) + 3))
+    let random = Math.random() * CHARACTER_RANDOMNESS_LIMIT
     let to = random <= message.length ? random : message.length;
 
     if (timer) {
-        prevDiv.innerHTML = prevMessage;
+        prevDiv.innerHTML = `<span class='name'>${NAME}</span>@<span class='at'>${AT}>  </span>${prevMessage}`;;
         clearInterval(timer);
         timer = undefined;
     }
 
     timer = setInterval(() => {
-        div.innerHTML += message.substring(from, to);
+        div.innerHTML = `<span class='name'>${NAME}</span>@<span class='at'>${AT}> </span>${message.substring(0, to)}`;
         from = to;
         if (from == message.length) {
             clearInterval(timer);
             timer = undefined;
         }
-        random = (Math.floor(Math.random() * (parseInt((document.querySelector("#speed").value)) / 2) + 3))
+        random = Math.floor(Math.random() * CHARACTER_RANDOMNESS_LIMIT)
         to = to + random <= message.length ? to + random : message.length;
-    }, 0.01)
+    }, INTERVAL_BETWEEN_TYPED_CHARACTERS)
 
     if (rootElement.childNodes.length > MAX_MESSAGES) {
         rootElement.childNodes[0].remove()
@@ -62,20 +62,22 @@ const addMessage = (rootElement, message) => {
     rootElement.appendChild(div)
     prevDiv = div;
     prevMessage = message;
-
 }
 
-let shiftSpeed = () => {
-    let speed = document.querySelector("#speed").value;
-
+let shiftSpeed = (multiplier = 1) => {
     clearInterval(addMessagetimer);
     currentMessage = 0;
     addMessagetimer = setInterval(() => {
         if (currentMessage < data.length) {
             addMessage(container, data[currentMessage])
         } else {
-            currentMessage = -1;
+            clearInterval(addMessagetimer)
         }
         currentMessage++;
-    }, INTERVAL - Math.floor(speed * (INTERVAL / MAX_RANGE)))
+    }, INTERVAL * multiplier)
 }
+
+
+setTimeout(() => {
+    shiftSpeed()
+}, 1000)
