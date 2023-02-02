@@ -11,7 +11,7 @@ let data = [
     "",
     "I also develop cross-platform mobile apps using React Native",
     "",
-    "If you want to colaborate with me",
+    "If you want to collaborate with me",
     "you can reach me via email at ayonshafiul@gmail.com",
     "or you can check out my github at <a href='https://github.com/ayonshafiul'>ayonshafiul</a>",
     "",
