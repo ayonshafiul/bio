@@ -5,7 +5,7 @@ let data = [
     "",
     "I'm currently working as a Junior Software Engineer at Mediusware Ltd.",
     "",
-    "I'm a full stack developer focusing on MERN stack",
+    "I'm a full stack developer focusing on MERN / MEAN stack",
     "",
     "I also develop cross-platform mobile apps using React Native",
     "",
