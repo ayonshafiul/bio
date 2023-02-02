@@ -18,10 +18,9 @@ body {
     max-width: 800px;
     background-color: #1f1f1f;
     border-radius: 8px;
-    height: 400px;
+    min-height: 50vh;
     color: white;
     padding: 8px;
-    overflow: scroll;
 }
 
 .message {
