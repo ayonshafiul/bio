@@ -15,19 +15,18 @@ body {
 
 #container {
     width: 80%;
-    min-width: 670px;
     max-width: 800px;
     background-color: #1f1f1f;
     border-radius: 8px;
     height: 400px;
     color: white;
-    padding: 8px
+    padding: 8px;
+    overflow: scroll;
 }
 
 .message {
     font-family: monospace;
     font-size: 12px;
-    white-space: nowrap;
 }
 
 .message:last-child::after {
