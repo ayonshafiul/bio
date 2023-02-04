@@ -4,20 +4,33 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+a {
+    color: white
+}
+
 #container {
-    margin: 200px auto 0px auto;
-    width: 80%;
-    min-width: 600px;
+    width: 95%;
     max-width: 800px;
     background-color: #1f1f1f;
     border-radius: 8px;
-    height: 400px;
+    min-height: 50vh;
     color: white;
+    padding: 8px;
 }
 
 .message {
     font-family: monospace;
     font-size: 12px;
+    line-height: 1.5;
 }
 
 .message:last-child::after {
@@ -30,6 +43,14 @@
     left: 2px;
     background-color: white;
     animation: blink .1s ease-in-out infinite;
+}
+
+.name {
+    color: greenyellow;
+}
+
+.at {
+    color: orangered;
 }
 
 
