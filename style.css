@@ -1,65 +1,64 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  font-size: 16px;
 }
 
 a {
-    color: white
+  color: white;
 }
 
 #container {
-    width: 95%;
-    max-width: 800px;
-    background-color: #1f1f1f;
-    border-radius: 8px;
-    min-height: 50vh;
-    color: white;
-    padding: 8px;
+  width: 95%;
+  max-width: 800px;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  min-height: 50vh;
+  color: white;
+  padding: 8px;
 }
 
 .message {
-    font-family: monospace;
-    font-size: 12px;
-    line-height: 1.5;
+  font-family: monospace;
+  line-height: 1.5;
 }
 
 .message:last-child::after {
-    content: '';
-    display: inline-block;
-    width: 6px;
-    height: 12px;
-    position: relative;
-    top: 2px;
-    left: 2px;
-    background-color: white;
-    animation: blink .1s ease-in-out infinite;
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 12px;
+  position: relative;
+  top: 2px;
+  left: 2px;
+  background-color: white;
+  animation: blink 0.1s ease-in-out infinite;
 }
 
 .name {
-    color: greenyellow;
+  color: greenyellow;
 }
 
 .at {
-    color: orangered;
+  color: orangered;
 }
 
-
 @keyframes blink {
-    0% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 1;
+  }
 
-    100% {
-        opacity: 0.5;
-    }
+  100% {
+    opacity: 0.5;
+  }
 }

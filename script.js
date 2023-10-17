@@ -62,7 +62,7 @@ const addMessage = (rootElement, message) => {
   prevMessage = message;
 };
 
-let shiftSpeed = (multiplier = 1) => {
+let startApp = (speedMultiplier = 1) => {
   clearInterval(addMessagetimer);
   currentMessage = 0;
   addMessagetimer = setInterval(() => {
@@ -72,9 +72,9 @@ let shiftSpeed = (multiplier = 1) => {
       clearInterval(addMessagetimer);
     }
     currentMessage++;
-  }, INTERVAL * multiplier);
+  }, INTERVAL * speedMultiplier);
 };
 
 setTimeout(() => {
-  shiftSpeed();
+  startApp();
 }, 1000);
